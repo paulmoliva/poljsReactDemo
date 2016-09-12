@@ -80,14 +80,17 @@ class Polls extends React.Component{
             <canvas id="canvas" width="300" height="125"></canvas>
           </div>
         </div>
+        <select onChange={(e)=> this.setState({polls: $(e.currentTarget).val()})}>
+          <option value='president'>Presidential Battlegrounds</option>
+          <option value='senate'>Senate Battlegrounds</option>
+        </select>
         <Masonry className='buttons'
                  elementType={'ul'}
                  options= {{transitionDuration: '0.94s',
-                            columnWidth: 200,
+                          gutter: 20,
                           itemSelector: '.poll-button'}}>
           {this.createButtons()}
         </Masonry>
-        <button onClick={()=> this.setState({polls: 'senate'})}>Change</button>
         <div id='smiles'></div>
       </div>
     );
