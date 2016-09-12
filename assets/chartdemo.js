@@ -1,4 +1,4 @@
-import { presidentialPoll, pollChart, return_json } from './pol';
+import { presidentialPoll, pollChart, senatePoll, senateChart, return_json } from './pol';
 
 function displayGeorgia() {
   console.log('hi');
@@ -20,8 +20,7 @@ function display4WayNational() {
 }
 
 export function createButtons(){
-  console.log('in function');
-  ['4-way-national',
+  const prezStates = ['4-way-national',
   '2-way-national',
   'Pennsylvania',
   'Wisconsin',
@@ -36,11 +35,15 @@ export function createButtons(){
   'Florida',
   'Ohio',
   'North Carolina',
-  'Georgia'].forEach ( el => {
-    $('.buttons').append(`<li class ="poll-button"
-                             onclick= 'display("${el}")'>${el}
-                         </li>`);
+  'Georgia'];
+
+  if (this.state.polls === 'president'){
+  return prezStates.map ( el => {
+    return (<li className="poll-button"
+                onClick= {display(el)}>{el}
+                         </li>);
   });
+  }
 }
 
 
@@ -57,8 +60,16 @@ export function display(state) {
   // setTimeout( ()=> {
   //   if(!$('#smiles').children().length)pollChart(state);
   // }, 4000 );
+}
 
-
+export function displaySenate(state){
+  clearPoll();
+  $('.sk-circle').removeClass('hidden');
+  senatePoll(state);
+  if(!$('.poll-container').length) senatePoll(state);
+  if(!$('.poll-container').length) senatePoll(state);
+  senateChart(state);
+  if(!$('.poll-container').length) senatePoll(state);
 }
 
 function clearPoll() {

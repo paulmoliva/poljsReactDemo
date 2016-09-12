@@ -208,6 +208,31 @@ function _getPollID(state){
   }
 }
 
+function _getSenateID(state){
+  if (typeof state === 'number'){
+    return state;
+  }
+  state = state.toLowerCase();
+  switch (state) {
+    case 'colorado':
+      return 5984;
+    case 'wisconsin':
+      return 3740;
+    default:
+
+  }
+}
+
+export function senatePoll(state, format = 'html'){
+  //$('.sk-circle').toggleClass('hidden');
+  let id = _getSenateID(state);
+  if (format === 'html'){
+    _make_request(id, htmlDisplay);
+  } else {
+    _make_request(id, asJSON);
+  }
+}
+
 var idx = 0;
 
 export function pollChart(state){
