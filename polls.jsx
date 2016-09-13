@@ -20,7 +20,8 @@ class Polls extends React.Component{
   }
 
   createButtons(){
-    const prezStates = ['4-way-national',
+    const prezStates =
+    ['4-way-national',
     '2-way-national',
     'Pennsylvania',
     'Wisconsin',
@@ -37,13 +38,19 @@ class Polls extends React.Component{
     'North Carolina',
     'Georgia'];
     const senateStates =
-         ['Colorado',
-         'Wisconsin',
-         'Florida',
-         'Indiana',
-         'Pennsylvania',
-         'Nevada',
-         'North Carolina'];
+     ['Colorado',
+     'Wisconsin',
+     'Florida',
+     'Indiana',
+     'Pennsylvania',
+     'Nevada',
+     'North Carolina',
+     'New Hampshire',
+     'Missouri',
+     'Ohio',
+     'Iowa',
+     'Arizona'
+     ];
     if (this.state.polls === 'president'){
       let stateLis = prezStates.map ( el => {
         return (<li id={el}
@@ -80,17 +87,21 @@ class Polls extends React.Component{
             <canvas id="canvas" width="300" height="125"></canvas>
           </div>
         </div>
-        <select onChange={(e)=> this.setState({polls: $(e.currentTarget).val()})}>
-          <option value='president'>Presidential Battlegrounds</option>
-          <option value='senate'>Senate Battlegrounds</option>
-        </select>
-        <Masonry className='buttons'
-                 elementType={'ul'}
-                 options= {{transitionDuration: '0.94s',
-                          gutter: 20,
-                          itemSelector: '.poll-button'}}>
-          {this.createButtons()}
-        </Masonry>
+        <div className='button-container'>
+          <select onChange={(e) => {
+              this.setState({polls: $(e.currentTarget).val()});
+            }}>
+            <option value='president'>Presidential Battlegrounds</option>
+            <option value='senate'>Senate Battlegrounds</option>
+          </select>
+          <Masonry className='buttons'
+            elementType={'ul'}
+            options= {{transitionDuration: '0.94s',
+              gutter: 5,
+              itemSelector: '.poll-button'}}>
+              {this.createButtons()}
+            </Masonry>
+        </div>
         <div id='smiles'></div>
       </div>
     );

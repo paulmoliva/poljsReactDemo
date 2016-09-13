@@ -30,6 +30,11 @@ h3, h4 {
   flex-direction: column;
 }
 
+.button-container {
+  margin: 65px auto;
+
+}
+
 .root {
   display: flex;
   flex-direction: row;
@@ -51,7 +56,7 @@ h3, h4 {
   box-sizing: border-box;
   padding: 7px;
   border-radius: 4%;
-  width: 22%;
+  width: 24.5%;
   background-color: blue;
   margin: 3px 0;
   color: whitesmoke;
@@ -65,8 +70,8 @@ h3, h4 {
 
 .buttons {
   text-align: center;
+  width: 100%;
   padding: 0;
-  margin: 30px 0;
   list-style: none;
   display: flex;
   flex-flow: row wrap;

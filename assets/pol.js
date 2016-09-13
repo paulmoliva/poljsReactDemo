@@ -235,6 +235,16 @@ function _getSenateID(state){
       return 5982;
     case 'north carolina':
       return 5693;
+    case 'new hampshire':
+      return 3862;
+    case 'missouri':
+      return 5631;
+    case 'ohio':
+      return 5386;
+    case 'iowa':
+      return 5978;
+    case 'arizona':
+      return 5455;
 
     default:
 
