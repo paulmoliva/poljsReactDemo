@@ -43,7 +43,7 @@ class Polls extends React.Component{
      ['Colorado',
      'Wisconsin',
      'Florida',
-     'Indiana',
+    // 'Indiana',
      'Pennsylvania',
      'Nevada',
      'North Carolina',
@@ -51,7 +51,9 @@ class Polls extends React.Component{
      'Missouri',
      'Ohio',
      'Iowa',
-     'Arizona'
+     'Arizona',
+     'California',
+     'New York'
      ];
     if (this.state.polls === 'president'){
       let stateLis = prezStates.map ( el => {
@@ -106,7 +108,8 @@ componentDidUpdate(){
         onAfterOpen={this.afterOpenModal}
         onRequestClose={this.closeModal}
         style={customStyles} >
-          <h1>Pol.js React Demo</h1>
+
+          <h1>Pol.js React Demo<a href="https://github.com/paulmoliva/Pol.js"><img className="logo" src="http://www.pauloliva.com/assets/poljslogo.png"></img></a></h1>
           <p>This demo will showcase the functionality of Pol.js, an open source JavaScript library created by Paul Oliva.</p>
           <p>Usage is simple. For presidential polls, select 'Presidential Battlegrounds' from the dropdown and choose the poll data you would like to view.</p>
           <p>For senate polls, select 'Senate Battlegrounds' from the dropdown and choose the poll data you would like to view.</p>

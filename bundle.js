@@ -21497,7 +21497,9 @@
 	    key: 'createButtons',
 	    value: function createButtons() {
 	      var prezStates = ['Four-way-national', '2-way-national', 'Pennsylvania', 'Wisconsin', 'Iowa', 'Michigan', 'Virginia', 'New Hampshire', 'Missouri', 'Colorado', 'Nevada', 'Arizona', 'Florida', 'Ohio', 'North Carolina', 'Georgia'];
-	      var senateStates = ['Colorado', 'Wisconsin', 'Florida', 'Indiana', 'Pennsylvania', 'Nevada', 'North Carolina', 'New Hampshire', 'Missouri', 'Ohio', 'Iowa', 'Arizona'];
+	      var senateStates = ['Colorado', 'Wisconsin', 'Florida',
+	      // 'Indiana',
+	      'Pennsylvania', 'Nevada', 'North Carolina', 'New Hampshire', 'Missouri', 'Ohio', 'Iowa', 'Arizona', 'California', 'New York'];
 	      if (this.state.polls === 'president') {
 	        var stateLis = prezStates.map(function (el) {
 	          return _react2.default.createElement(
@@ -21571,7 +21573,12 @@
 	          _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Pol.js React Demo'
+	            'Pol.js React Demo',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://github.com/paulmoliva/Pol.js' },
+	              _react2.default.createElement('img', { className: 'logo', src: 'http://www.pauloliva.com/assets/poljslogo.png' })
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'p',
@@ -29154,7 +29161,6 @@
 	  var rcpURL = 'http://www.realclearpolitics.com/epolls/json/';
 	  var historical = '_historical.js';
 	  var requestURL = rcpURL + pollID + historical;
-	  var request = new XMLHttpRequest();
 	  $(function () {
 	    $.ajax({
 	      url: rcpURL + pollID.toString() + historical,
@@ -29359,9 +29365,11 @@
 	      return 5978;
 	    case 'arizona':
 	      return 5455;
-	
+	    case 'california':
+	      return 5991;
+	    case 'new york':
+	      return 5851;
 	    default:
-	
 	  }
 	}
 	
@@ -29441,7 +29449,6 @@
 	  };
 	  var myLineChart = new _Chart2.default.Line(ctx, {
 	    data: { datasets: dataArray, labels: dates.slice(0, size).reverse()
-	
 	    },
 	
 	    options: {}

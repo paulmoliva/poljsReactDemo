@@ -11,7 +11,6 @@ function _make_request(pollID, callBack){
   const rcpURL = 'http://www.realclearpolitics.com/epolls/json/';
   const historical = '_historical.js';
   const requestURL = rcpURL + pollID + historical;
-  var request = new XMLHttpRequest();
   $( () => {
     $.ajax(
       {
@@ -245,9 +244,11 @@ function _getSenateID(state){
       return 5978;
     case 'arizona':
       return 5455;
-
+    case 'california':
+      return 5991;
+    case 'new york':
+      return 5851;
     default:
-
   }
 }
 
@@ -316,7 +317,6 @@ function makeArray(obj, size = 61) {
   };
   var myLineChart = new Chart.Line(ctx, {
     data: {datasets: dataArray, labels: dates.slice(0,size).reverse()
-
   },
 
     options: {}
