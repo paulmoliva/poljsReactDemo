@@ -8,7 +8,7 @@ function _make_request(pollID, callBack){
     pollData = obj;
   }
 
-  const rcpURL = 'http://www.realclearpolitics.com/epolls/json/';
+  const rcpURL = 'https://www.realclearpolitics.com/epolls/json/';
   const historical = '_historical.js';
   const requestURL = rcpURL + pollID + historical;
   var request = new XMLHttpRequest();
