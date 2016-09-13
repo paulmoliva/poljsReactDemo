@@ -27143,7 +27143,7 @@
 	    pollData = obj;
 	  }
 	
-	  var rcpURL = 'https://www.realclearpolitics.com/epolls/json/';
+	  var rcpURL = 'http://www.realclearpolitics.com/epolls/json/';
 	  var historical = '_historical.js';
 	  var requestURL = rcpURL + pollID + historical;
 	  var request = new XMLHttpRequest();
@@ -27449,7 +27449,7 @@
 /* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var require;var require;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;"use strict";var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};/*!
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var require;var require;"use strict";var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};/*!
 	 * Chart.js
 	 * http://chartjs.org/
 	 * Version: 2.2.1
