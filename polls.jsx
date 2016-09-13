@@ -142,6 +142,7 @@ componentDidUpdate(){
               itemSelector: '.poll-button'}}>
               {this.createButtons()}
             </Masonry>
+            <div className='status'></div>
         </div>
         <div id='smiles'></div>
       </div>

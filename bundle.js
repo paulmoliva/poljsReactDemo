@@ -21648,7 +21648,8 @@
 	                gutter: 5,
 	                itemSelector: '.poll-button' } },
 	            this.createButtons()
-	          )
+	          ),
+	          _react2.default.createElement('div', { className: 'status' })
 	        ),
 	        _react2.default.createElement('div', { id: 'smiles' })
 	      );
@@ -29162,12 +29163,14 @@
 	  var historical = '_historical.js';
 	  var requestURL = rcpURL + pollID + historical;
 	  $(function () {
+	    $('.status').text('Retrieving polling data...');
 	    $.ajax({
 	      url: rcpURL + pollID.toString() + historical,
 	      dataType: 'jsonp',
 	      jsonpCallback: 'return_json',
 	      jsonp: false,
 	      success: function success(someData) {
+	        if ($('.status').text() === 'Retrieving polling data...') $('.status').text('Polling data received...');
 	        callBack(someData);
 	      },
 	      error: function error(someData) {
@@ -29458,6 +29461,7 @@
 	  }
 	  $('#smiles').append('<p class=hidden smiley>:)</p>');
 	  if ($('.canvas-container').length) $('.sk-circle').addClass('hidden');
+	  $('.status').text('Request Complete.');
 	}
 
 /***/ },
