@@ -96,8 +96,9 @@ componentDidUpdate(){
     Modal.setAppElement(appElement);
     const customStyles = {
       content : {
-        margin: '20px auto',
-        width: '50%'
+        margin: '8% auto',
+        width: '30%',
+        padding: '15px 20px'
       }
     };
     return (
@@ -114,13 +115,13 @@ componentDidUpdate(){
           <p>For senate polls, select 'Senate Battlegrounds' from the dropdown and choose the poll data you would like to view.</p>
           <p>For each poll selection, Pol.js makes an AJAX request with a JSONP callback to RealClearPolitics to fetch the data. As RCP does not have a formal API for polling data, but their data is open to the public, the methods Pol.js provides to retrieve data are sometimes referred to as a "synthetic API".</p>
           <button onClick={this.closeModal}>
-            close</button>
+            Close</button>
         </Modal>
         <div className='container'>
-          <div className="sk-circle hidden">
-            <img src="./assets/loading5.gif" alt="" />
-          </div>
           <div className="column">
+            <div className="sk-circle hidden">
+              <img className="loader" src="./assets/loading5.gif" alt="" />
+            </div>
             <div className="polls" id="polls-root">
             </div>
             <div className='status'></div>

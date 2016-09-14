@@ -21556,8 +21556,9 @@
 	      _reactModal2.default.setAppElement(appElement);
 	      var customStyles = {
 	        content: {
-	          margin: '20px auto',
-	          width: '50%'
+	          margin: '8% auto',
+	          width: '30%',
+	          padding: '15px 20px'
 	        }
 	      };
 	      return _react2.default.createElement(
@@ -21603,7 +21604,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: this.closeModal },
-	            'close'
+	            'Close'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -21611,12 +21612,12 @@
 	          { className: 'container' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'sk-circle hidden' },
-	            _react2.default.createElement('img', { src: './assets/loading5.gif', alt: '' })
-	          ),
-	          _react2.default.createElement(
-	            'div',
 	            { className: 'column' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'sk-circle hidden' },
+	              _react2.default.createElement('img', { className: 'loader', src: './assets/loading5.gif', alt: '' })
+	            ),
 	            _react2.default.createElement('div', { className: 'polls', id: 'polls-root' }),
 	            _react2.default.createElement('div', { className: 'status' })
 	          ),
@@ -29492,7 +29493,7 @@
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var require;var require;"use strict";var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};/*!
+	var require;var require;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;"use strict";var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};/*!
 	 * Chart.js
 	 * http://chartjs.org/
 	 * Version: 2.2.1
