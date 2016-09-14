@@ -144,6 +144,11 @@ componentDidUpdate(){
             </Masonry>
             <div className='status'></div>
         </div>
+        <footer>
+          <a href="https://github.com/paulmoliva/">My Github</a>
+          <a href="http://pauloliva.com">My Portfolio</a>
+        </footer>
+        <a href="https://github.com/paulmoliva/Pol.js"><img className='corner' src="http://www.pauloliva.com/assets/poljslogo.png"></img></a>
         <div id='smiles'></div>
       </div>
     );

@@ -21651,6 +21651,25 @@
 	          ),
 	          _react2.default.createElement('div', { className: 'status' })
 	        ),
+	        _react2.default.createElement(
+	          'footer',
+	          null,
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'https://github.com/paulmoliva/' },
+	            'My Github'
+	          ),
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'http://pauloliva.com' },
+	            'My Portfolio'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'https://github.com/paulmoliva/Pol.js' },
+	          _react2.default.createElement('img', { className: 'corner', src: 'http://www.pauloliva.com/assets/poljslogo.png' })
+	        ),
 	        _react2.default.createElement('div', { id: 'smiles' })
 	      );
 	    }
