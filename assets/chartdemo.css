@@ -5,6 +5,9 @@ body {
 
 select {
   font-size: 1.95vw;
+  background-color: #6B5748;
+  color: whitesmoke;
+  text-shadow: 1px 1px black;
 }
 
 .poll-container h3 {
@@ -138,9 +141,9 @@ button:hover {
 .poll-button{
   box-sizing: border-box;
   padding: 7px;
-  border-radius: 5px;
+  border-radius: 0px;
   width: 24.5%;
-  background-color: blue;
+  background-color: #435A64;
   margin: 3px 0;
   color: whitesmoke;
   text-shadow: 1px 1px black;
