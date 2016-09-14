@@ -12,7 +12,8 @@ function _make_request(pollID, callBack){
   const historical = '_historical.js';
   const requestURL = rcpURL + pollID + historical;
   $( () => {
-    $('.status').text('Retrieving polling data...');
+    $('.status').empty();
+    $('.status').append('<p>Retrieving polling data...</p>');
     $.ajax(
       {
         url: rcpURL + pollID.toString() + historical,
@@ -21,7 +22,7 @@ function _make_request(pollID, callBack){
         jsonp: false,
         success: (someData) => {
           if ($('.status').text()===('Retrieving polling data...'))
-            $('.status').text('Polling data received...');
+            $('.status').append('<p>Polling data received...</p>');
           callBack(someData);
         },
         error: (someData) => {
@@ -329,5 +330,5 @@ function makeArray(obj, size = 61) {
   }
   $('#smiles').append('<p class=hidden smiley>:)</p>');
   if($('.canvas-container').length) $('.sk-circle').addClass('hidden');
-  $('.status').text('Request Complete.');
+  $('.status').append('<p>Request Complete.</p>');
 }

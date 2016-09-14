@@ -21499,7 +21499,7 @@
 	      var prezStates = ['Four-way-national', '2-way-national', 'Pennsylvania', 'Wisconsin', 'Iowa', 'Michigan', 'Virginia', 'New Hampshire', 'Missouri', 'Colorado', 'Nevada', 'Arizona', 'Florida', 'Ohio', 'North Carolina', 'Georgia'];
 	      var senateStates = ['Colorado', 'Wisconsin', 'Florida',
 	      // 'Indiana',
-	      'Pennsylvania', 'Nevada', 'North Carolina', 'New Hampshire', 'Missouri', 'Ohio', 'Iowa', 'Arizona', 'California', 'New York'];
+	      'Pennsylvania', 'Nevada', 'North Carolina', 'New Hampshire', 'Missouri', 'Ohio', 'Iowa', 'Arizona', 'California'];
 	      if (this.state.polls === 'president') {
 	        var stateLis = prezStates.map(function (el) {
 	          return _react2.default.createElement(
@@ -21614,7 +21614,12 @@
 	            { className: 'sk-circle hidden' },
 	            _react2.default.createElement('img', { src: './assets/loading5.gif', alt: '' })
 	          ),
-	          _react2.default.createElement('div', { className: 'polls', id: 'polls-root' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'column' },
+	            _react2.default.createElement('div', { className: 'polls', id: 'polls-root' }),
+	            _react2.default.createElement('div', { className: 'status' })
+	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'canvas-container' },
@@ -21648,12 +21653,16 @@
 	                gutter: 5,
 	                itemSelector: '.poll-button' } },
 	            this.createButtons()
-	          ),
-	          _react2.default.createElement('div', { className: 'status' })
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'footer',
 	          null,
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'https://github.com/paulmoliva/Pol.js' },
+	            _react2.default.createElement('img', { className: 'small', src: 'http://www.pauloliva.com/assets/poljslogo.png' })
+	          ),
 	          _react2.default.createElement(
 	            'a',
 	            { href: 'https://github.com/paulmoliva/' },
@@ -21664,11 +21673,6 @@
 	            { href: 'http://pauloliva.com' },
 	            'My Portfolio'
 	          )
-	        ),
-	        _react2.default.createElement(
-	          'a',
-	          { href: 'https://github.com/paulmoliva/Pol.js' },
-	          _react2.default.createElement('img', { className: 'corner', src: 'http://www.pauloliva.com/assets/poljslogo.png' })
 	        ),
 	        _react2.default.createElement('div', { id: 'smiles' })
 	      );
@@ -29182,14 +29186,15 @@
 	  var historical = '_historical.js';
 	  var requestURL = rcpURL + pollID + historical;
 	  $(function () {
-	    $('.status').text('Retrieving polling data...');
+	    $('.status').empty();
+	    $('.status').append('<p>Retrieving polling data...</p>');
 	    $.ajax({
 	      url: rcpURL + pollID.toString() + historical,
 	      dataType: 'jsonp',
 	      jsonpCallback: 'return_json',
 	      jsonp: false,
 	      success: function success(someData) {
-	        if ($('.status').text() === 'Retrieving polling data...') $('.status').text('Polling data received...');
+	        if ($('.status').text() === 'Retrieving polling data...') $('.status').append('<p>Polling data received...</p>');
 	        callBack(someData);
 	      },
 	      error: function error(someData) {
@@ -29480,7 +29485,7 @@
 	  }
 	  $('#smiles').append('<p class=hidden smiley>:)</p>');
 	  if ($('.canvas-container').length) $('.sk-circle').addClass('hidden');
-	  $('.status').text('Request Complete.');
+	  $('.status').append('<p>Request Complete.</p>');
 	}
 
 /***/ },

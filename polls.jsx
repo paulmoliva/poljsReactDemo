@@ -52,8 +52,7 @@ class Polls extends React.Component{
      'Ohio',
      'Iowa',
      'Arizona',
-     'California',
-     'New York'
+     'California'
      ];
     if (this.state.polls === 'president'){
       let stateLis = prezStates.map ( el => {
@@ -121,7 +120,10 @@ componentDidUpdate(){
           <div className="sk-circle hidden">
             <img src="./assets/loading5.gif" alt="" />
           </div>
-          <div className="polls" id="polls-root">
+          <div className="column">
+            <div className="polls" id="polls-root">
+            </div>
+            <div className='status'></div>
           </div>
           <div className="canvas-container">
             <canvas id="canvas" width="300" height="125"></canvas>
@@ -142,13 +144,12 @@ componentDidUpdate(){
               itemSelector: '.poll-button'}}>
               {this.createButtons()}
             </Masonry>
-            <div className='status'></div>
         </div>
         <footer>
+          <a href="https://github.com/paulmoliva/Pol.js"><img className='small' src="http://www.pauloliva.com/assets/poljslogo.png"></img></a>
           <a href="https://github.com/paulmoliva/">My Github</a>
           <a href="http://pauloliva.com">My Portfolio</a>
         </footer>
-        <a href="https://github.com/paulmoliva/Pol.js"><img className='corner' src="http://www.pauloliva.com/assets/poljslogo.png"></img></a>
         <div id='smiles'></div>
       </div>
     );
