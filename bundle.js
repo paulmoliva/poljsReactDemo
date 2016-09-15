@@ -21491,12 +21491,18 @@
 	  _createClass(Polls, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      //display('four-way-national');
+	      $('tspan:contains(.com)').remove();
+	      window.display = _chartdemo.display;
+	      window.displaySenate = _chartdemo.displaySenate;
+	      window.detectDisplay = function (type, state) {
+	        if (type === "president") (0, _chartdemo.displaySenate)(state);else (0, _chartdemo.display)(state);
+	      };
 	    }
 	  }, {
 	    key: 'createButtons',
 	    value: function createButtons() {
-	      var prezStates = ['Four-way-national', '2-way-national', 'Pennsylvania', 'Wisconsin', 'Iowa', 'Michigan', 'Virginia', 'New Hampshire', 'Missouri', 'Colorado', 'Nevada', 'Arizona', 'Florida', 'Ohio', 'North Carolina', 'Georgia'];
+	      debugger;
+	      var prezStates = ['Four-way-national', '2-way-national'];
 	      var senateStates = ['Colorado', 'Wisconsin', 'Florida',
 	      // 'Indiana',
 	      'Pennsylvania', 'Nevada', 'North Carolina', 'New Hampshire', 'Missouri', 'Ohio', 'Iowa', 'Arizona', 'California'];
@@ -21505,7 +21511,7 @@
 	          return _react2.default.createElement(
 	            'li',
 	            { id: el,
-	              className: 'poll-button',
+	              className: 'pres-poll-button',
 	              onClick: function onClick(e) {
 	                return (0, _chartdemo.display)($(e.target).attr('id'));
 	              }
@@ -21519,7 +21525,7 @@
 	          return _react2.default.createElement(
 	            'li',
 	            { id: el,
-	              className: 'poll-button',
+	              className: 'pres-poll-button',
 	              onClick: function onClick(e) {
 	                return (0, _chartdemo.displaySenate)($(e.target).attr('id'));
 	              }
@@ -21528,6 +21534,44 @@
 	          );
 	        });
 	        return _stateLis;
+	      }
+	    }
+	  }, {
+	    key: 'makeColumn',
+	    value: function makeColumn() {
+	
+	      if (this.state.polls === 'president') {
+	        $('tspan:contains(.com)').remove();
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'column' },
+	          _react2.default.createElement(
+	            _reactMasonryComponent2.default,
+	            { className: 'pres-buttons',
+	              elementType: 'ul',
+	              options: { transitionDuration: '0.94s',
+	                gutter: 1,
+	                itemSelector: '.pres-poll-button' } },
+	            this.createButtons()
+	          ),
+	          _react2.default.createElement('div', { id: 'map' })
+	        );
+	      } else {
+	
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'column' },
+	          _react2.default.createElement(
+	            _reactMasonryComponent2.default,
+	            { className: 'pres-buttons',
+	              elementType: 'ul',
+	              options: { transitionDuration: '0.94s',
+	                gutter: 1,
+	                itemSelector: '.pres-poll-button' } },
+	            this.createButtons()
+	          ),
+	          _react2.default.createElement('div', { id: 'map', className: 'hidden' })
+	        );
 	      }
 	    }
 	  }, {
@@ -21543,6 +21587,8 @@
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
+	
+	      $('.pres-poll-button').first().click();
 	      $('.poll-button').first().click();
 	    }
 	  }, {
@@ -21634,6 +21680,8 @@
 	            'select',
 	            { onChange: function onChange(e) {
 	                _this2.setState({ polls: $(e.currentTarget).val() });
+	                window.displayType = _this2.state.polls;
+	                console.log(window.displayType);
 	              } },
 	            _react2.default.createElement(
 	              'option',
@@ -21646,34 +21694,7 @@
 	              'Senate Battlegrounds'
 	            )
 	          ),
-	          _react2.default.createElement(
-	            _reactMasonryComponent2.default,
-	            { className: 'buttons',
-	              elementType: 'ul',
-	              options: { transitionDuration: '0.94s',
-	                gutter: 5,
-	                itemSelector: '.poll-button' } },
-	            this.createButtons()
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'footer',
-	          null,
-	          _react2.default.createElement(
-	            'a',
-	            { href: 'https://github.com/paulmoliva/Pol.js' },
-	            _react2.default.createElement('img', { className: 'small', src: 'http://www.pauloliva.com/assets/poljslogo.png' })
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { href: 'https://github.com/paulmoliva/' },
-	            'My Github'
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { href: 'http://pauloliva.com' },
-	            'My Portfolio'
-	          )
+	          this.makeColumn()
 	        ),
 	        _react2.default.createElement('div', { id: 'smiles' })
 	      );
@@ -29493,7 +29514,7 @@
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var require;var require;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;"use strict";var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};/*!
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var require;var require;"use strict";var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};/*!
 	 * Chart.js
 	 * http://chartjs.org/
 	 * Version: 2.2.1

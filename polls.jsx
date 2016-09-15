@@ -18,27 +18,21 @@ class Polls extends React.Component{
 
 
   componentDidMount(){
-    //display('four-way-national');
+    $('tspan:contains(.com)').remove();
+    window.display = display;
+    window.displaySenate = displaySenate;
+    window.detectDisplay = (type, state) => {
+      if (type === "president") displaySenate(state);
+      else display(state);
+    };
   }
 
   createButtons(){
+    debugger;
     const prezStates =
     ['Four-way-national',
     '2-way-national',
-    'Pennsylvania',
-    'Wisconsin',
-    'Iowa',
-    'Michigan',
-    'Virginia',
-    'New Hampshire',
-    'Missouri',
-    'Colorado',
-    'Nevada',
-    'Arizona',
-    'Florida',
-    'Ohio',
-    'North Carolina',
-    'Georgia'];
+    ];
     const senateStates =
      ['Colorado',
      'Wisconsin',
@@ -57,7 +51,7 @@ class Polls extends React.Component{
     if (this.state.polls === 'president'){
       let stateLis = prezStates.map ( el => {
         return (<li id={el}
-                     className ="poll-button"
+                     className ="pres-poll-button"
                      onClick= {(e) => display($(e.target).attr('id'))}
                  >
                  {el}
@@ -67,13 +61,49 @@ class Polls extends React.Component{
     } else if (this.state.polls === 'senate'){
       let stateLis = senateStates.map ( el => {
         return (<li id={el}
-                     className ="poll-button"
+                     className ="pres-poll-button"
                      onClick= {(e) => displaySenate($(e.target).attr('id'))}
                  >
                  {el}
                  </li>);
       });
       return stateLis;
+    }
+  }
+
+  makeColumn(){
+
+    if (this.state.polls === 'president'){
+      $('tspan:contains(.com)').remove();
+      return (
+        <div className='column'>
+
+          <Masonry className='pres-buttons'
+            elementType={'ul'}
+            options= {{transitionDuration: '0.94s',
+              gutter: 1,
+              itemSelector: '.pres-poll-button'}}>
+              {this.createButtons()}
+            </Masonry>
+            <div id="map"></div>
+        </div>
+      );
+    } else {
+
+        return (
+          <div className='column'>
+
+            <Masonry className='pres-buttons'
+              elementType={'ul'}
+              options= {{transitionDuration: '0.94s',
+                gutter: 1,
+                itemSelector: '.pres-poll-button'}}>
+                {this.createButtons()}
+              </Masonry>
+              <div id="map" className='hidden'></div>
+
+          </div>
+        );
     }
   }
 
@@ -86,6 +116,8 @@ closeModal() {
 }
 
 componentDidUpdate(){
+
+  $('.pres-poll-button').first().click();
   $('.poll-button').first().click();
 }
 
@@ -133,24 +165,15 @@ componentDidUpdate(){
         <div className='button-container'>
           <select onChange={(e) => {
               this.setState({polls: $(e.currentTarget).val()});
-
+              window.displayType = this.state.polls;
+              console.log(window.displayType);
             }}>
             <option value='president'>Presidential Battlegrounds</option>
             <option value='senate'>Senate Battlegrounds</option>
           </select>
-          <Masonry className='buttons'
-            elementType={'ul'}
-            options= {{transitionDuration: '0.94s',
-              gutter: 5,
-              itemSelector: '.poll-button'}}>
-              {this.createButtons()}
-            </Masonry>
+          {this.makeColumn()}
         </div>
-        <footer>
-          <a href="https://github.com/paulmoliva/Pol.js"><img className='small' src="http://www.pauloliva.com/assets/poljslogo.png"></img></a>
-          <a href="https://github.com/paulmoliva/">My Github</a>
-          <a href="http://pauloliva.com">My Portfolio</a>
-        </footer>
+
         <div id='smiles'></div>
       </div>
     );
