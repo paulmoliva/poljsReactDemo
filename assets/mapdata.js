@@ -503,13 +503,7 @@ var simplemaps_usmap_mapdata = {
 	},
 
 	labels:{
-		"HI": {
-			color: 'default',
-			hover_color: 'default',
-			font_family: 'default',
-			pill: 'yes',
-			width: 'default',
-		}
+
 	}
 
 }
