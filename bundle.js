@@ -21620,12 +21620,7 @@
 	          _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Pol.js React Demo',
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'https://github.com/paulmoliva/Pol.js' },
-	              _react2.default.createElement('img', { className: 'logo', src: 'http://www.pauloliva.com/assets/poljslogo.png' })
-	            )
+	            'Pol.js React Demo'
 	          ),
 	          _react2.default.createElement(
 	            'p',
@@ -21694,7 +21689,39 @@
 	              'Senate Battlegrounds'
 	            )
 	          ),
-	          this.makeColumn()
+	          this.makeColumn(),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'column' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Created by Paul Oliva'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'http://github.com/paulmoliva' },
+	                _react2.default.createElement('img', { src: './assets/git.png' })
+	              ),
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://www.linkedin.com/in/paul-m-oliva-4a595b2a' },
+	                _react2.default.createElement('img', { src: './assets/linkedin.png' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'http://pauloliva.com' },
+	              _react2.default.createElement(
+	                'h4',
+	                null,
+	                'My Portfolio'
+	              )
+	            )
+	          )
 	        ),
 	        _react2.default.createElement('div', { id: 'smiles' })
 	      );
@@ -29514,7 +29541,7 @@
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var require;var require;"use strict";var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};/*!
+	var require;var require;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;"use strict";var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};/*!
 	 * Chart.js
 	 * http://chartjs.org/
 	 * Version: 2.2.1

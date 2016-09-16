@@ -6,7 +6,7 @@ var simplemaps_usmap_mapdata = {
 		width: width, //or 'responsive'
 		background_color: '#FFFFFF',
 		background_transparent: 'yes',
-		border_color: '#ffffff',
+		border_color: '#aaa',
 		popups: 'detect', //on_click, on_hover, or detect
 
 		//State defaults
@@ -57,7 +57,7 @@ var simplemaps_usmap_mapdata = {
 
 		//Popup settings
 		popup_color: 'white',
-		popup_opacity: .9,
+		popup_opacity: 0.00001,
 		popup_shadow: 1,
 		popup_corners: 5,
 		popup_font: '12px/1.5 Verdana, Arial, Helvetica, sans-serif',
@@ -114,9 +114,10 @@ var simplemaps_usmap_mapdata = {
 		"ME": {
 			name: 'Maine',
 			description: 'default',
-			color: 'default',
-			hover_color: 'default',
-			url: 'default'
+			color: 'blue',
+			hover_color: 'blue',
+			url: 'javascript:window.detectDisplay(window.displayType, "maine")',
+			inactive: 'no'
 			},
 		"RI": {
 			name: 'Rhode Island',
@@ -144,9 +145,10 @@ var simplemaps_usmap_mapdata = {
 		"NJ": {
 			name: 'New Jersey',
 			description: 'default',
-			color: 'default',
-			hover_color: 'default',
-			url: 'default'
+			color: 'blue',
+			hover_color: 'blue',
+			url: 'javascript:window.detectDisplay(window.displayType, "new jersey")',
+			inactive: 'no'
 			},
 		"DE": {
 			name: 'Delaware',
@@ -188,9 +190,10 @@ var simplemaps_usmap_mapdata = {
 		"IN": {
 			name: 'Indiana',
 			description: 'default',
-			color: 'default',
-			hover_color: 'default',
-			url: 'default'
+			color: 'red',
+			hover_color: 'red',
+			url: 'javascript:window.detectDisplay(window.displayType, "indiana")',
+			inactive: 'no'
 			},
 		"IL": {
 			name: 'Illinois',
@@ -209,9 +212,10 @@ var simplemaps_usmap_mapdata = {
 		"WI": {
 			name: 'Wisconsin',
 			description: 'default',
-			color: 'default',
-			hover_color: 'default',
-			url: 'default'
+			color: 'blue',
+			hover_color: 'blue',
+			url: 'javascript:window.detectDisplay(window.displayType, "wisconsin")',
+			inactive: 'no'
 			},
 		"NC": {
 			name: 'North Carolina',

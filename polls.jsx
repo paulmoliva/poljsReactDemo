@@ -141,7 +141,7 @@ componentDidUpdate(){
         onRequestClose={this.closeModal}
         style={customStyles} >
 
-          <h1>Pol.js React Demo<a href="https://github.com/paulmoliva/Pol.js"><img className="logo" src="http://www.pauloliva.com/assets/poljslogo.png"></img></a></h1>
+          <h1>Pol.js React Demo</h1>
           <p>This demo will showcase the functionality of Pol.js, an open source JavaScript library created by Paul Oliva.</p>
           <p>Usage is simple. For presidential polls, select 'Presidential Battlegrounds' from the dropdown and choose the poll data you would like to view.</p>
           <p>For senate polls, select 'Senate Battlegrounds' from the dropdown and choose the poll data you would like to view.</p>
@@ -172,6 +172,14 @@ componentDidUpdate(){
             <option value='senate'>Senate Battlegrounds</option>
           </select>
           {this.makeColumn()}
+          <div className="column">
+            <h3>Created by Paul Oliva</h3>
+            <div className='row'>
+              <a href='http://github.com/paulmoliva'><img src='./assets/git.png' /></a>
+              <a href='https://www.linkedin.com/in/paul-m-oliva-4a595b2a'><img src='./assets/linkedin.png' /></a>
+            </div>
+            <a href='http://pauloliva.com'><h4>My Portfolio</h4></a>
+          </div>
         </div>
 
         <div id='smiles'></div>
