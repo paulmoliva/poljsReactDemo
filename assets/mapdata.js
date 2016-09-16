@@ -1,4 +1,4 @@
-var width = (screen.width * 0.31354).toString();
+var width = (screen.width * 0.30).toString();
 var simplemaps_usmap_mapdata = {
 
 	main_settings:{
