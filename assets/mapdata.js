@@ -86,7 +86,7 @@ var simplemaps_usmap_mapdata = {
 			description: 'default',
 			color: 'default',
 			hover_color: 'default',
-			url: 'javascript:console.log("click")'
+			url: ''
 			},
 		"FL": {
 			name: 'Florida',

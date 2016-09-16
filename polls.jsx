@@ -28,7 +28,6 @@ class Polls extends React.Component{
   }
 
   createButtons(){
-    debugger;
     const prezStates =
     ['Four-way-national',
     '2-way-national',
