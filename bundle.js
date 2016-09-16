@@ -21491,12 +21491,18 @@
 	  _createClass(Polls, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      //display('four-way-national');
+	      $('tspan:contains(.com)').remove();
+	      window.display = _chartdemo.display;
+	      window.displaySenate = _chartdemo.displaySenate;
+	      window.detectDisplay = function (type, state) {
+	        if (type === "president") (0, _chartdemo.displaySenate)(state);else (0, _chartdemo.display)(state);
+	      };
 	    }
 	  }, {
 	    key: 'createButtons',
 	    value: function createButtons() {
-	      var prezStates = ['Four-way-national', '2-way-national', 'Pennsylvania', 'Wisconsin', 'Iowa', 'Michigan', 'Virginia', 'New Hampshire', 'Missouri', 'Colorado', 'Nevada', 'Arizona', 'Florida', 'Ohio', 'North Carolina', 'Georgia'];
+	      debugger;
+	      var prezStates = ['Four-way-national', '2-way-national'];
 	      var senateStates = ['Colorado', 'Wisconsin', 'Florida',
 	      // 'Indiana',
 	      'Pennsylvania', 'Nevada', 'North Carolina', 'New Hampshire', 'Missouri', 'Ohio', 'Iowa', 'Arizona', 'California'];
@@ -21505,7 +21511,7 @@
 	          return _react2.default.createElement(
 	            'li',
 	            { id: el,
-	              className: 'poll-button',
+	              className: 'pres-poll-button',
 	              onClick: function onClick(e) {
 	                return (0, _chartdemo.display)($(e.target).attr('id'));
 	              }
@@ -21519,7 +21525,7 @@
 	          return _react2.default.createElement(
 	            'li',
 	            { id: el,
-	              className: 'poll-button',
+	              className: 'pres-poll-button',
 	              onClick: function onClick(e) {
 	                return (0, _chartdemo.displaySenate)($(e.target).attr('id'));
 	              }
@@ -21528,6 +21534,44 @@
 	          );
 	        });
 	        return _stateLis;
+	      }
+	    }
+	  }, {
+	    key: 'makeColumn',
+	    value: function makeColumn() {
+	
+	      if (this.state.polls === 'president') {
+	        $('tspan:contains(.com)').remove();
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'column' },
+	          _react2.default.createElement(
+	            _reactMasonryComponent2.default,
+	            { className: 'pres-buttons',
+	              elementType: 'ul',
+	              options: { transitionDuration: '0.94s',
+	                gutter: 1,
+	                itemSelector: '.pres-poll-button' } },
+	            this.createButtons()
+	          ),
+	          _react2.default.createElement('div', { id: 'map' })
+	        );
+	      } else {
+	
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'column' },
+	          _react2.default.createElement(
+	            _reactMasonryComponent2.default,
+	            { className: 'pres-buttons',
+	              elementType: 'ul',
+	              options: { transitionDuration: '0.94s',
+	                gutter: 1,
+	                itemSelector: '.pres-poll-button' } },
+	            this.createButtons()
+	          ),
+	          _react2.default.createElement('div', { id: 'map', className: 'hidden' })
+	        );
 	      }
 	    }
 	  }, {
@@ -21543,6 +21587,8 @@
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
+	
+	      $('.pres-poll-button').first().click();
 	      $('.poll-button').first().click();
 	    }
 	  }, {
@@ -21574,12 +21620,7 @@
 	          _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Pol.js React Demo',
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'https://github.com/paulmoliva/Pol.js' },
-	              _react2.default.createElement('img', { className: 'logo', src: 'http://www.pauloliva.com/assets/poljslogo.png' })
-	            )
+	            'Pol.js React Demo'
 	          ),
 	          _react2.default.createElement(
 	            'p',
@@ -21634,6 +21675,8 @@
 	            'select',
 	            { onChange: function onChange(e) {
 	                _this2.setState({ polls: $(e.currentTarget).val() });
+	                window.displayType = _this2.state.polls;
+	                console.log(window.displayType);
 	              } },
 	            _react2.default.createElement(
 	              'option',
@@ -21646,33 +21689,38 @@
 	              'Senate Battlegrounds'
 	            )
 	          ),
+	          this.makeColumn(),
 	          _react2.default.createElement(
-	            _reactMasonryComponent2.default,
-	            { className: 'buttons',
-	              elementType: 'ul',
-	              options: { transitionDuration: '0.94s',
-	                gutter: 5,
-	                itemSelector: '.poll-button' } },
-	            this.createButtons()
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'footer',
-	          null,
-	          _react2.default.createElement(
-	            'a',
-	            { href: 'https://github.com/paulmoliva/Pol.js' },
-	            _react2.default.createElement('img', { className: 'small', src: 'http://www.pauloliva.com/assets/poljslogo.png' })
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { href: 'https://github.com/paulmoliva/' },
-	            'My Github'
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { href: 'http://pauloliva.com' },
-	            'My Portfolio'
+	            'div',
+	            { className: 'column' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Created by Paul Oliva'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'http://github.com/paulmoliva' },
+	                _react2.default.createElement('img', { src: './assets/git.png' })
+	              ),
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://www.linkedin.com/in/paul-m-oliva-4a595b2a' },
+	                _react2.default.createElement('img', { src: './assets/linkedin.png' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'http://pauloliva.com' },
+	              _react2.default.createElement(
+	                'h4',
+	                null,
+	                'My Portfolio'
+	              )
+	            )
 	          )
 	        ),
 	        _react2.default.createElement('div', { id: 'smiles' })
