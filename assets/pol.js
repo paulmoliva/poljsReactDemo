@@ -211,6 +211,8 @@ function _getPollID(state){
        return 5910;
     else if (state === 'kansas')
        return 5904;
+    else if ( state === 'indiana')
+       return 5878;
      else if (state === 'four-way-national'){
         return 5952;
   } else {
